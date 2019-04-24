@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Topic7</string>
+    <string name="title_activity_dictionary">DictionaryActivity</string>
+    <string name="title_activity_new">NewActivity</string>
+</resources>
