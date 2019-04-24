@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         lstDictionary = findViewById(R.id.lstDictionary);
         dictionary = new HashMap<>();
+
         // Read All the words from word.txt file
         readFromFile();
         ArrayAdapter adapter = new ArrayAdapter<>(
@@ -47,8 +48,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
+
+
+
     private void readFromFile() {
         try {
             FileInputStream fileInputStream = openFileInput("words.txt");

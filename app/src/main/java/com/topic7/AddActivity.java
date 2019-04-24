@@ -35,6 +35,7 @@ public class AddActivity extends AppCompatActivity {
         try {
             PrintStream printStream = new PrintStream(openFileOutput("words.txt", MODE_PRIVATE | MODE_APPEND));
             printStream.println(etWord.getText().toString() + "->" + etDefinition.getText().toString());
+            printStream.close();
             Toast.makeText(this, "Saved to" + getFilesDir(), Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
             Log.d("Dictionary app " , "Error: " + e.toString());

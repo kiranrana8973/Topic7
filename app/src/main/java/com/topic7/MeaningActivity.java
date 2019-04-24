@@ -10,13 +10,15 @@ public class MeaningActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meaning);
+        tvMeaning = findViewById(R.id.tvMeaning);
 
         Bundle bundle = getIntent().getExtras();
+
         if(bundle!=null) {
             String meaning = bundle.getString("meaning");
-            tvMeaning = findViewById(R.id.tvMeaning);
-            //setting the meaning in textview
             tvMeaning.setText(meaning);
         }
     }
 }
+
+
