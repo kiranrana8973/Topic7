@@ -1,6 +1,7 @@
 package com.topic7;
 
 import android.content.Intent;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -54,9 +58,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void readFromFile() {
         try {
-            FileInputStream fileInputStream = openFileInput("words.txt");
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader br = new BufferedReader(inputStreamReader);
+            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM),"Dictionary");
+            File imgFile = new File(directory, "words.txt");
+
+            BufferedReader br = new BufferedReader(new FileReader(imgFile));
             String line="";
             while ((line=br.readLine()) != null) {
                 String[] parts = line.split("->");
