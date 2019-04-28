@@ -15,8 +15,9 @@ import java.io.IOException;
 import java.io.PrintStream;
 
 public class AddActivity extends AppCompatActivity {
-    EditText etWord,etDefinition;
+    EditText etWord, etDefinition;
     Button btnAddWord;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,18 +38,19 @@ public class AddActivity extends AppCompatActivity {
     private void Save() {
         try {
 
-            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM),"Dictionary");
-            directory.mkdir();
-            File imgFile = new File(directory, "words.txt");
-            FileOutputStream fos = new FileOutputStream(imgFile);
-            fos.write((etWord.getText().toString() + "->" + etDefinition.getText().toString()).getBytes());
+//            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "Dictionary");
+//            directory.mkdir();
+//            File imgFile = new File(directory, "words.txt");
+//            FileOutputStream fos = new FileOutputStream(imgFile);
+//            fos.write((etWord.getText().toString() + "->" + etDefinition.getText().toString()).getBytes());
 
-//            PrintStream printStream = new PrintStream(openFileOutput("words.txt", MODE_PRIVATE | MODE_APPEND));
-//            printStream.println(etWord.getText().toString() + "->" + etDefinition.getText().toString());
-//            printStream.close();
+            PrintStream printStream = new PrintStream(openFileOutput("words.txt", MODE_PRIVATE | MODE_APPEND));
+            printStream.println(etWord.getText().toString() + "->" + etDefinition.getText().toString() + "->my1");
+            printStream.close();
+
             Toast.makeText(this, "Saved to" + getFilesDir(), Toast.LENGTH_SHORT).show();
         } catch (IOException e) {
-            Log.d("Dictionary app " , "Error: " + e.toString());
+            Log.d("Dictionary app ", "Error: " + e.toString());
             e.printStackTrace();
         }
     }
