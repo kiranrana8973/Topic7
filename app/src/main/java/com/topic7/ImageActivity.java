@@ -35,12 +35,6 @@ public class ImageActivity extends AppCompatActivity {
         Resources res = null;
 
         Resources resources = getResources();
-//        final int resourceId = resources.getIdentifier("my", "drawable",
-//                getPackageName());
-//        img1.setImageDrawable(resources.getDrawable(resourceId));
-
-        //sadfkjsdf
-
         int resourceImage = getResources().getIdentifier("my", "drawable", getPackageName());
         img1.setImageResource(resourceImage);
         img2.setImageResource(resourceImage);
