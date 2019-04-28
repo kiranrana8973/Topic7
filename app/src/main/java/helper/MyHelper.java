@@ -6,6 +6,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.List;
+
+import model.Dictionary;
+
 public class MyHelper extends SQLiteOpenHelper {
 
     public static final String databaseName = "DictionayDB";
@@ -31,7 +35,8 @@ public class MyHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS WORDS");
+        onCreate(db);
     }
 
     public boolean InsertData(String word, String meaning, SQLiteDatabase db) {
@@ -44,6 +49,11 @@ public class MyHelper extends SQLiteOpenHelper {
             Log.d("Error : ", e.toString());
             return false;
         }
+    }
+
+    public List<Dictionary> getAllWords()
+    {
+        return null;
     }
 }
 
