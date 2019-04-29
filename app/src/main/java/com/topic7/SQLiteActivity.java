@@ -8,7 +8,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import helper.MyHelper;
+import model.Word;
 
 public class SQLiteActivity extends AppCompatActivity {
 
@@ -26,6 +29,10 @@ public class SQLiteActivity extends AppCompatActivity {
         final MyHelper myHelper = new MyHelper(this);
         final SQLiteDatabase sqLiteDatabase = myHelper.getWritableDatabase();
 
+        List<Word> wordList = myHelper.GetAllWords(sqLiteDatabase);
+
+
+
         btnAddWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,3 +48,5 @@ public class SQLiteActivity extends AppCompatActivity {
         });
     }
 }
+
+

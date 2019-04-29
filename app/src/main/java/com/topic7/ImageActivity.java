@@ -40,23 +40,5 @@ public class ImageActivity extends AppCompatActivity {
         img2.setImageResource(resourceImage);
     }
 
-//    private void readFromFile() {
-//        List<Dictionary> lstdiCtionary = new ArrayList<>();
-//        try {
-//            File directory = new File(getExternalFilesDir(Environment.DIRECTORY_DCIM), "Dictionary");
-//            File imgFile = new File(directory, "words.txt");
-//
-//            BufferedReader br = new BufferedReader(new FileReader(imgFile));
-//            String line = "";
-//            while ((line = br.readLine()) != null) {
-//                String[] parts = line.split("->");
-//              //  lstdiCtionary.add(new M );
-//
-//
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+
 }
