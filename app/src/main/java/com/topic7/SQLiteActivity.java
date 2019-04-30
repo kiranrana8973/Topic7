@@ -17,6 +17,7 @@ public class SQLiteActivity extends AppCompatActivity {
 
     EditText etWord, etMeaning;
     Button btnAddWord;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,22 +30,18 @@ public class SQLiteActivity extends AppCompatActivity {
         final MyHelper myHelper = new MyHelper(this);
         final SQLiteDatabase sqLiteDatabase = myHelper.getWritableDatabase();
 
-        List<Word> wordList = myHelper.GetAllWords(sqLiteDatabase);
-
-
-
         btnAddWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (myHelper.InsertData(etWord.getText().toString(), etMeaning.getText().toString(), sqLiteDatabase))
-                {
-                    Toast.makeText(SQLiteActivity.this, "Successful", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
+                long id = myHelper.InsertData(etWord.getText().toString(), etMeaning.getText().toString(), sqLiteDatabase);
+                if (id > 0) {
+                    Toast.makeText(SQLiteActivity.this, "Successful" + id, Toast.LENGTH_SHORT).show();
+                } else {
                     Toast.makeText(SQLiteActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
             }
+
+
         });
     }
 }
