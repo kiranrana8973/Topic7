@@ -30,11 +30,9 @@ public class DisplayWordActivity extends AppCompatActivity {
         final SQLiteDatabase sqLiteDatabase = myHelper.getWritableDatabase();
 
         List<Word> wordList = new ArrayList<>();
-        //wordList = myHelper.GetAllWords(sqLiteDatabase);
-        wordList = myHelper.GetWordByName("Hello",sqLiteDatabase);
-
+        wordList = myHelper.GetAllWords(sqLiteDatabase);
+      //  wordList = myHelper.GetWordByName("Hello",sqLiteDatabase);
         HashMap<String, String> hashMap = new HashMap<>();
-
         for (int i = 0; i < wordList.size(); i++) {
 
             hashMap.put(wordList.get(i).getWord(), wordList.get(i).getMeaning());
